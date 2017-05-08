@@ -31,7 +31,7 @@ class Comms:
             # send pwm to right output
             if val > 100:
                 val = 100
-            out = self.map(val, 0, 100, 0, 4096)
+            out = self.map(val, 0, 100, 0, 4095)
             print('left', val)
             self.pwm.set_pwm(0, 0, out)
             self.pwm.set_pwm(1, 0, 0)
@@ -39,7 +39,7 @@ class Comms:
             # send pwm to right output
             if val > 100:
                 val = 100
-            out = self.map(val, 0, 100, 0, 4096)
+            out = self.map(val, 0, 100, 0, 4095)
             print('right', val)
             self.pwm.set_pwm(0, 0, 0)
             self.pwm.set_pwm(1, 0, out)
