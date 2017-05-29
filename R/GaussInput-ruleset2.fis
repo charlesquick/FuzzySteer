@@ -1,0 +1,96 @@
+% R-Fuzzy (C) J.M.Garibaldi, 1st Oct 2004 $Revision: 0.1$
+[System]
+Name='FuzzySteer'
+Type='mamdani'
+NumInputs=3
+NumOutputs=1
+NumRules=37
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='distance'
+Range=[-15000 15000]
+NumMFs=6
+MF1='neg_hi':'gaussmf',[4000 -12000]
+MF2='neg_low':'gaussmf',[2000 -3000]
+MF3='neg_zero':'gaussmf',[300 -250]
+MF4='pos_zero':'gaussmf',[300 250]
+MF5='pos_low':'gaussmf',[2000 3000]
+MF6='pos_hi':'gaussmf',[4000 12000]
+
+[Input2]
+Name='delta'
+Range=[-15000 15000]
+NumMFs=6
+MF1='neg_hi':'gaussmf',[4000 -10000]
+MF2='neg_low':'gaussmf',[2000 -3000]
+MF3='neg_zero':'gaussmf',[300 -250]
+MF4='pos_zero':'gaussmf',[300 250]
+MF5='pos_low':'gaussmf',[2000 3000]
+MF6='pos_hi':'gaussmf',[4000 10000]
+
+[Input3]
+Name='speed'
+Range=[0 30]
+NumMFs=3
+MF1='low':'trimf',[0 0 10]
+MF2='med':'trimf',[0 10 25]
+MF3='hi':'trapmf',[10 25 30 30]
+
+[Output1]
+Name='steer%'
+Range=[0 100]
+NumMFs=9
+MF1='neg_hi':'trapmf',[0 0 20 30]
+MF2='neg_med':'trimf',[20 30 40]
+MF3='neg_low':'trimf',[30 40 55]
+MF4='neg_zero':'trimf',[45 50 50]
+MF5='zero':'trimf',[45 50 55]
+MF6='pos_zero':'trimf',[50 50 55]
+MF7='pos_low':'trimf',[45 60 70]
+MF8='pos_med':'trimf',[60 70 80]
+MF9='pos_hi':'trapmf',[70 80 100 100]
+
+[Rules]
+1 1 0, 9 (1) : 1
+1 2 0, 9 (1) : 1
+1 3 0, 9 (1) : 1
+1 4 0, 9 (1) : 1
+1 5 0, 6 (1) : 1
+1 6 0, 6 (1) : 1
+2 1 0, 8 (1) : 1
+2 2 0, 7 (1) : 1
+2 3 0, 6 (1) : 1
+2 4 0, 6 (1) : 1
+2 5 0, 3 (1) : 1
+2 6 0, 2 (1) : 1
+3 1 0, 7 (1) : 1
+3 2 0, 4 (1) : 1
+3 3 0, 5 (1) : 1
+3 4 0, 5 (1) : 1
+3 5 0, 4 (1) : 1
+3 6 0, 3 (1) : 1
+4 1 0, 3 (1) : 1
+4 2 0, 4 (1) : 1
+4 3 0, 4 (1) : 1
+4 4 0, 6 (1) : 1
+4 5 0, 4 (1) : 1
+4 6 0, 7 (1) : 1
+5 1 0, 2 (1) : 1
+5 2 0, 3 (1) : 1
+5 3 0, 4 (1) : 1
+5 4 0, 4 (1) : 1
+5 5 0, 7 (1) : 1
+5 6 0, 8 (1) : 1
+6 1 0, 1 (1) : 1
+6 2 0, 1 (1) : 1
+6 3 0, 1 (1) : 1
+6 4 0, 1 (1) : 1
+6 5 0, 4 (1) : 1
+6 6 0, 4 (1) : 1
+0 0 3, 5 (1) : 1
+

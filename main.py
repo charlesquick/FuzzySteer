@@ -10,7 +10,9 @@ class Main:
         self.guienable = True
         self.fisout = None
         self.fail = 10
+        print("initialising Fuzzy System...")
         self.fis = FisHandler()
+        print("Fuzzy System initialised")
         self.comm = Comms()
         self.distance = 0
         self.delta = 0

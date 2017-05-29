@@ -1,7 +1,7 @@
 #include<SoftwareSerial.h>
+#include<LiquidCrystal.h>
 
-
-SoftwareSerial piSerial (3,4);
+SoftwareSerial piSerial (7,8);
 
 void setup()
 {
@@ -22,6 +22,8 @@ void setup()
   Serial.begin(19200);  //open serial port
   piSerial.begin(9600);
   
+  
+  
 } 
 
 void sendData(float distance, float delta, int velocity, float sAngle){
@@ -34,6 +36,7 @@ void sendData(float distance, float delta, int velocity, float sAngle){
     piSerial.print(" ");
     piSerial.print(sAngle);
     piSerial.println(" ");
+    
 }
 
 

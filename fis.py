@@ -4,7 +4,7 @@ import rpy2.robjects as ro
 class Fis:
     def __init__(self):
         self.fuzzy = importr('FuzzyR')
-        ro.r('fis = readfis("/home/pi/autosteer/code/R/fis-20-4.fis")')
+        ro.r('fis = readfis("/home/pi/autosteer/code/R/GaussAll-ruleset2.fis")')
         self.fis = ro.r['fis']
 
     def compute(self, distance, delta, speed):
@@ -17,7 +17,7 @@ class FisHandler:
     def __init__(self):
         self.DELTA_EMPHASIS = 1         # Initial tuning parameter for delta
         self.DISTANCE_EMPHASIS = 1      # Initial tuning parameter for distance
-        self.STEER_RATE = 3             # Multiplier for converting steering recommendation into PWM%
+        self.STEER_RATE = 2             # Multiplier for converting steering recommendation into PWM%
         self.STEER_BASE = 0             # Minimum PWM value (other than 0)
         self.distance = None
         self.delta = None
