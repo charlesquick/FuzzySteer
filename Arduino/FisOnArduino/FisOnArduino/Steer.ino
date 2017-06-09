@@ -93,8 +93,8 @@ int integrate(int sangle){
     if(val > 0 and val <= STEER_BASE){
       val = STEER_BASE;
     }
-    analogWrite(1, val);
-    analogWrite(2, 0);
+    analogWrite(3, val);
+    analogWrite(5, 0);
   }
   
   if(error > 0){  //right steer
@@ -103,8 +103,8 @@ int integrate(int sangle){
     if(val > 0 and val <= STEER_BASE){
       val = STEER_BASE;
     }
-    analogWrite(1, 0);
-    analogWrite(2, val);
+    analogWrite(3, 0);
+    analogWrite(5, val);
   }
   
 }
